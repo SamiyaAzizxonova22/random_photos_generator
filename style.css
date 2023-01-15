@@ -52,8 +52,13 @@ body {
 
 .fa-solid {
   position: absolute;
-  left: 560px;
+  left: 500px;
   color: rgb(88, 122, 151);
+}
+@media screen and (max-width: 1200px) {
+  .fa-solid{
+    left: 350px;
+  }
 }
 
 .photos__list {
