@@ -8,9 +8,8 @@ form.addEventListener("submit", (e) => {
 	const api = `https://api.unsplash.com/search/photos/?page=1&query=${form.input.value}&client_id=PYYovcuRItu-VvSKDkIOgkLY8QDIQ5X8CXQijeIUxgU`;
 	getTodos(api)
 		.then((data) => {
-			getTodos(data);
-			console.log("ishladi");
-
+			// getTodos(data);
+			// console.log("ishladi");
 			showPhotos(data);
 		})
 		.catch((err) => {
@@ -27,12 +26,13 @@ const getTodos = (resurse) => {
 				const data = JSON.parse(request.responseText);
 				resolve(data);
         error.textContent = ''
-        rasmlar.style.display = 'block'
+        rasmlar.style.display = 'grid'
 
 
-			} else if(request.readyState === 4 && form.input.value === 0){
+			} else if(request.readyState === 4 && form.input.value.length === 0){
         error.textContent = "Iltimos yoqtirgan rasmingiz nomini kiriting !!!"
         rasmlar.style.display = 'none'
+
 			}
 			else if (request.readyState === 4) {
 				reject(
@@ -50,8 +50,8 @@ getTodos(
 	`https://api.unsplash.com/photos/?client_id=PYYovcuRItu-VvSKDkIOgkLY8QDIQ5X8CXQijeIUxgU`
 )
 	.then((data) => {
-		getTodos(data);
-		console.log("ishladi");
+		// getTodos(data);
+		// console.log("ishladi");
 		showPhotos(data);
 	})
 	.catch((err) => {
